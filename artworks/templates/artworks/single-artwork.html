@@ -1,0 +1,91 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container-md">
+
+<img style="max-width: 800px;" src="{{ artwork.featured_image.url }}">
+
+<h2>{{artwork.title}}</h2>
+<hr>
+
+<h5 class="artwork--value">
+    {{artwork.vote_ratio}}% Positive Votes Received ({{artwork.vote_total}}
+    Vote{{artwork.vote_total|pluralize:"s"}})
+</h5>
+<hr>
+<h3>About the Artwork</h3>
+<p>{{artwork.description}}</p>
+<h5>I would like feedback on:</h5>
+<p>{{artwork.topic}}</p>
+
+
+{% if artwork.source_link %}
+<a class="singleArtwork__liveLink" href="{{artwork.source_link}}" target="_blank"><i
+        class="im im-external-link"></i>Source
+    Code
+</a>
+{% endif %}
+
+{% if artwork.demo_link %}
+<a class="singleArtwork__liveLink" href="{{artwork.source_link}}" target="_blank"><i
+        class="im im-external-link"></i>Live Demo
+
+</a>
+{% endif %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+
+        <p class="stars">{{review.value}}</p>
+
+            {% if request.user.profile.id in artwork.reviewers %}
+                <p>You have already submitted your review for this artwork.</p>
+
+            {% elif request.user.profile == artwork.owner %}
+                <p>You cannot review your own work.</p>
+
+            {% elif request.user.is_authenticated %}
+        <form class="form" action="{% url 'artwork' artwork.id %}" method="POST">
+            <p><small>Instant feedback in the form of up and down votes is anonymous.</small> </p>
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form__field">
+                <label for="">{{field.label}}</label>
+                {{field}}
+            </div>
+            {% endfor %}
+
+
+            <input type="submit" class="btn btn-outline-success" value="Add a review" />
+        </form>
+
+        {% else %}
+            <a href="{% url 'login' %}?next={{request.path}}">Please sign in to leave a review.</a>
+        {% endif %}
+
+        <div class="card" style="width: 18rem;">
+            {% for review in artwork.review_set.all %}
+            <div class="card" style="width: 18rem;">
+                {% if review.comments %}
+
+                <hr>
+                    <a href="{% url 'user-profile' review.owner.id  %}">
+                        <img class="card-img-top" src="{{review.owner.profile_image.url}}" alt="reviewer profile image" />
+                    </a>
+                    <a href="{% url 'user-profile' review.owner.id %}"
+                class="author">{{review.owner.name}}</a>
+                    <p>{{review.comments|linebreaksbr}}</p>
+                {% endif %} 
+            {% endfor %}
+        </div>
+        </div>
+
+    </div>
+<hr>
+</div>
+</div>
+
+{% endblock %}

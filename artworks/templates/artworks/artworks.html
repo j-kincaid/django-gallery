@@ -1,0 +1,156 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class ="container">
+      
+           
+
+    <div class="container-sm">
+
+        <h1>JESSICA KINCAID</h1>
+        
+        <h2>Full Stack Developer</h2>
+        
+        
+        
+        <h3>My experience</h3>
+        
+        <p>I've held two internships, mentored adult learners in coding since 2017, graduated from LaunchCode coding bootcamp in Python and JavaScript, served as an instructional assistant for LaunchCode, and earned an AAS in Web Development and Digital Media.</p>
+        
+    </div>
+
+    <h3>Projects</h3>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for artwork in artworks|slice:"12" %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ artwork.featured_image.url }}" class="card-img-top img-thumbnail"  alt="detail of artwork">
+                <div class="card-body">
+                    <h6 class="card-title">{{artwork.title}}</h6>
+                    <p class="card-text">
+                        By <a class="btn btn-secondary btn-sm" href="{% url 'user-profile' artwork.owner.id %}">{{artwork.owner.name}}</a>
+                    </p>
+                    <p><small>added {{artwork.created}}</small></p>
+                    <p>{{artwork.topic}}</p>
+                    
+                    <!--- voting per artwork/on each card -->
+
+                    {{artwork.vote_ratio}}%</p>
+                    <p class="card-text">{{artwork.vote_total}} Vote{{artwork.vote_total|pluralize:"s"}} Received</p>
+                    {% if artwork.vote_ratio >= 95 %}
+
+        <!-- 5 stars -->
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span> 
+                    {% elif artwork.vote_ratio >= 94 %}                
+        <!-- 4.5 stars -->
+                    <p class="card-text">Average Score
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>  
+                        <span class="fa fa-star-half checked"></span>
+        <!-- 4 stars -->
+                    {% elif artwork.vote_ratio >= 84 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span> 
+        <!-- 3.5 stars -->
+                    {% elif artwork.vote_ratio >= 74 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star-half checked"></span> 
+                        <span class="fa fa-star"></span>
+
+        <!-- 3 stars -->
+                    {% elif artwork.vote_ratio >= 64 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star"></span> 
+                        <span class="fa fa-star"></span> 
+
+        <!-- 2.5 stars -->
+                    {% elif artwork.vote_ratio >= 50 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star-half checked"></span> 
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+        <!-- 2 stars -->
+                    {% elif artwork.vote_ratio >= 30 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star-half checked"></span>
+                        <span class="fa fa-star"></span> 
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+
+        <!-- 1 star -->
+                    {% elif artwork.vote_ratio >= 24 %}
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> 
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+        <!-- 1 star -->
+                    {% elif artwork.vote_ratio >= 20 %}
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star-half checked"></span> 
+        <!-- 0.5 star -->
+
+                    {% elif artwork.vote_ratio >= 10 %}
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star-half checked"></span> 
+                    
+        <!-- 0 stars -->
+
+                    {% elif artwork.vote_ratio < 10 %}
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span> 
+                    {% endif %} 
+                  <p>
+                    <hr>
+                    <a href="{% url 'artwork' artwork.id %}" class="btn btn-secondary btn-sm">Detail View</a>
+                </div>
+            </div>
+              {% for artwork in profile.artwork_set.all %}
+                  
+              <div class="card" style="width: 18rem;">
+                    <a href="{% url 'artwork' artwork.id %}"
+                      <img style="max-width: 50px;" src="{{ artwork.featured_image.url }}"></a>
+                        <p class="card-text">
+                          <h3>{{artwork.title}}</h3>
+                        </p>
+                          <img src="{{ artwork.featured_image.url }}" class="card-img-top img-thumbnail"  alt="detail of artwork">
+                          <div class="card-body">
+                              <h5 class="card-title">{{artwork.title}}</h5>
+                          <p class="card-text">Score {{artwork.vote_ratio}}%</p>
+                          <p class="card-text">{{artwork.vote_total}} Vote{{artwork.vote_total|pluralize:"s"}}</p>
+                          <p class="card-text">
+                            <p class="card-text">Star{{artwork.star_count}}</p>
+                      </div>
+                      {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock content %}

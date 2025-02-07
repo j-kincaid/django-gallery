@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container-md">
+<h2>Artwork Form</h2>
+    <h5>Please include the media and dimensions or duration within your description of the work.
+        <hr>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{form.as_p}}
+
+        <input type="submit">
+
+    </form>
+</div>
+
+{% endblock %}

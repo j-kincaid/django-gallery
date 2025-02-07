@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class ="container text-center">
+
+  <h2>Instant Feedback</h2>
+  <h4>Please bear in mind these "at a glance" responses are provided anonymously without requiring details.</h4>
+      <div class="container text-center">
+          <div class="container"> 
+              <table class="table table-sm table-striped">
+              <thead>
+              <tr>
+                  <th scope="col">Artist</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Average Score</th>
+                  <th scope="col">Votes Received</th>
+                  <th scope="col"></th>
+              </tr>
+              </thead>
+              <tbody>
+                  {% for artwork in artworks %}
+                  <tr>
+                      <td>{{artwork.owner.name}}</td>
+                      <td>{{artwork.title}}</td>
+                      <td>{{artwork.vote_ratio}}%</td>
+                      <td>{{artwork.vote_total}}</td>
+                      <td>
+                        <a href="{% url 'artwork' artwork.id %}" class="btn btn-secondary btn-sm">View</a></td>
+                  </tr>
+              {% endfor %}
+              </tbody>
+          </table> 
+          </div>
+      </div>
+{% endblock content %}
