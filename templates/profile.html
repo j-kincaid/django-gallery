@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <title>ArtFave - Curate with Equity</title>
+</head>
+
+<body>
+  <!-- Main Section -->
+  <section class="user-list">
+    <div class="container">
+
+      <div class="card-group">
+
+        {% for profile in profiles %} 
+        <div class="card">
+          {% comment %} <img src="{{ profiles.profile_image.url }}" alt="profile image" /> {% endcomment %}
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a brief bio card with supporting biographical text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Voted 3 mins ago</small></p>
+                <ul class="nav nav-pills nav-fill art-skills">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Performance</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Spoken Word</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Writing</a>
+                  </li>
+                  <li>
+                    <a title="Personal Website" href="#" target="_blank"><i class="">Website</i></a>
+                  </li>
+                </ul>
+              <a href="#" button type="button" class="btn btn-primary">Send Message </button></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+          
+      </div>
+
+    </div>
+  </section>
+</body>
+
+</html>

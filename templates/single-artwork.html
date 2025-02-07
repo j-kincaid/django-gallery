@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="container">
+<img style="max-width: 400px;" src="{{ artwork.featured_image.url }}">
+<hr>
+<h2>{{artwork.title}}</h2>
+<p>{{artwork.description}}</p>
+<a href="{% url 'artworks' %}">List of Artworks</a>
+<hr>
+{% for tag in artwork.tags.all %}
+    <span style="border:1px solid darkgrey;">{{tag}}</span>
+{%  endfor %}
+<hr>
+<br/>
+
+</div>
+{% endblock content %}

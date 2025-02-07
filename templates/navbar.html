@@ -1,0 +1,58 @@
+{% load static %}
+
+<header class="header">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+   
+
+      {% comment %} <div class="container-fluid"> {% endcomment %}
+
+    <nav class="navbar navbar-dark bg-dark">
+
+      <div class="container-fluid">
+        <h1><a href="{% url 'artworks' %}" a class="navbar-brand">Jessica Kincaid</a></h1>
+        
+
+        <ul class="nav justify-content-end">
+          <ul class="nav justify-content-end">
+
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'artworks' %}">Artworks</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'profiles' %}">Participants</a>
+            </li>
+
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'account' %}">My Account</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'create-artwork' %}">Add Artwork</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'inbox' %}">Inbox</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'results' %}">Results</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'logout' %}">Log Out</a>
+            </li>
+            
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link active text-white" aria-current="page" href="{% url 'login' %}">Log In / Sign Up</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<hr>
