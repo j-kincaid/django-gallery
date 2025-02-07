@@ -13,7 +13,7 @@
         
         
         
-        <h3>My experience</h3>
+        <h3>About me</h3>
         
         <p>I've held two internships, mentored adult learners in coding since 2017, graduated from LaunchCode coding bootcamp in Python and JavaScript, served as an instructional assistant for LaunchCode, and earned an AAS in Web Development and Digital Media.</p>
         
@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <h6 class="card-title">{{artwork.title}}</h6>
                     <p class="card-text">
-                        By <a class="btn btn-secondary btn-sm" href="{% url 'user-profile' artwork.owner.id %}">{{artwork.owner.name}}</a>
+                        Category <a class="btn btn-secondary btn-sm" href="{% url 'user-profile' artwork.owner.id %}">{{artwork.owner.name}}</a>
                     </p>
                     <p><small>added {{artwork.created}}</small></p>
                     <p>{{artwork.topic}}</p>
