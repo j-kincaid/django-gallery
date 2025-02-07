@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+      <div class="container">
+        <h1>Artists and Moderators</h1>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for profile in profiles %} 
+              <div class="card">
+                <div class="card-body">
+                  <p><a href="{% url 'user-profile' profile.id %}"></a></p>
+                  
+                  <img src="{{ profile.profile_image.url  }}" class="card-img-top img-thumbnail" style="max-width: 150px; border-radius:5%;"  alt="profile image">
+                  <h5 class="card-title">{{profile.name}}</h5>
+                    
+                  <h6 class="card-title">{{profile.role}}</h6>
+                      <ul class="nav nav-pills nav-fill art-skills">
+                        <li class="nav-item">
+                          <p class="card-text"><small>{{profile.pronouns}}</small></p>
+                        </li>
+                        <hr>
+                        <li class="nav-item">
+                          <h5>Media:</h5>
+                          <h6 class="card-text">{{profile.media}}</h6>
+                        </li>
+
+                        {% if profile.brief_bio %} 
+
+                          <li class="nav-item">
+                            <p class="card-text"><small>{{profile.brief_bio|slice:"110"}}...</small></p>
+                          </li>
+                          
+
+                        <li>
+                          <a href="{% url 'user-profile' profile.id %}" class="btn btn-secondary btn-sm">Participant Profile</a>
+                        </li>
+                      </ul>
+                      {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+      </div>
+{% endblock %} 

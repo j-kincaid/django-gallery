@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container-md">
+    <a href="{% url 'account' %}" class="btn btn-secondary btn-sm">back</a>
+<h2>Edit Profile</h2>
+  
+    <form action="{% url 'edit-account' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-md">
+
+{% if page == 'register' %}
+
+    <div class="row justify-content-md-center">
+        <div class="card" style="width: 18rem;">
+            <a href="/">
+                <img src="{% static 'images/choreographer.jpg' %}" alt="icon" class="register-pic"/>
+            </a>
+            <h3>Join the Discussion!</h3>
+        </div>
+    </div>
+
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %} 
+
+            {% for field in form %}
+            <div class="form_field">
+                <label for="formInput#text">{{field.label}}</label>
+                {{field}}
+
+                {% for error in field.errors %}
+
+               <p style="color: red;"><small>{{field.help_text}}</small></p>
+
+                {% endfor %}
+            </div>
+
+            {% endfor %}
+
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <div>
+            <input type="submit" class="btn btn-primary btn-sm" value="Register User" />
+        </div>
+    </form>
+
+
+    <div class="row justify-content-md-center">
+        <p>Already have an account? 
+        <a href="{% url 'login' %}" class="btn btn-primary btn-sm">Sign in</a></p>
+    </div>
+</div>
+
+{% else %}
+
+<div class="row justify-content-md-center">
+
+    <div class="card" style="width: 18rem;">
+        <a href="/">
+            <img src="{% static 'images/choreographer.jpg' %}" class="portal-pic" />
+        </a>
+        <h3>Account Welcome page</h3>
+
+            <form action=""  method="POST">
+                {% csrf_token %} 
+                <div class="form_field">
+                    <input type="text" name="username" placeholder="Username" />
+                    
+                    <input type="password" name="password" placeholder="••••••••••" />
+                    <input type="submit" class="btn btn-primary btn-sm" value="Login" />
+                </div>
+                <div class="auth">
+                    <p><a href="{% url 'reset_password' %}">Forgot password?</a></p>
+
+                </div>
+            </form>
+
+            <div class="auth">
+                <p>Don't have an account? <a href="{% url 'register' %}" class="btn btn-primary btn-sm">Sign up</a></p>
+    </div>
+</div>
+
+{% endif %}
+
+</div> 
+
+
+{% endblock content %}

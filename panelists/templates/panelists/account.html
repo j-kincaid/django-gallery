@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<!-- Main Section -->
+
+<div class="container-md">
+    <div class="layout">
+        <div class="row justify-content-center">
+            <div class="col-4 personal">
+                
+                <a href="{% url 'edit-account' %}" class="btn btn-secondary btn-sm">Edit my Account</a>
+                
+                   
+
+                
+          
+               
+                <img src="{{ profile.profile_image.url }}" class="img-thumbnail" alt="participant profile image" />
+                <h2>{{profile.name}}</h2>
+                <h2>{{profile.role}}</h2>
+                <h4>bio</h4>
+                <p>{{profile.brief_bio}}</p>
+
+               <!-- social media links -->
+                <ul>
+                    {% if profile.website %}
+                        <li>
+                            <a class="card-text btn btn-secondary btn-sm" href="{{profile.website}}" target="_blank">Website</a>
+                        </li>
+                    {% endif %}
+
+                    {% if profile.social_insta %}
+                        <li>
+                            <a class="card-text btn btn-secondary btn-sm" title="Twitter" href="{{profile.social_insta}}" target="_blank">Instagram</a>
+                        </li>
+                    {% endif %}
+
+                    {% if profile.social_twitter %}
+                        <li>
+                            <a class="card-text btn btn-secondary btn-sm" title="Twitter" href="{{profile.social_twitter}}" target="_blank">Twitter</a>
+                        </li>
+                    {% endif %}
+
+                    {% if profile.social_other %}
+                        <li>
+                            <a class="card-text btn btn-secondary btn-sm" title="LinkedIn" href="{{profile.social_other}}" target="_blank">Other Social</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+
+            <div class="col-4 artwork-list">
+                <h4>My Artworks</h4>
+                
+
+
+            <div class="card" style="width: 18rem;">
+            {% for artwork in artworks %}
+         
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ artwork.featured_image.url }}" class="card-img-top img-thumbnail"  alt="detail of artwork">
+               
+                <h5 class="card-title">{{artwork.title}}</h5>
+                
+                <p>Description: {{artwork.description}}</p>
+
+                <p>{{artwork.topic}}</p>
+               
+                <a href="{% url 'artwork' artwork.id %}" class="btn btn-secondary btn-sm">View</a>
+                
+                <a href="{% url 'update-artwork' artwork.id %}" class="btn btn-secondary btn-sm">Edit</a>
+                <a href="{% url 'delete-artwork' artwork.id %}" class="btn btn-secondary btn-sm">Delete</a>
+              
+
+            {% for criteria in profile.criteria_set.all|slice:"5" %}
+                <li class="nav-item">
+                <p class="card-text"><small>{{criteria}}.</small></p>
+                </li>
+            {% endfor %} 
+            
+            {% endfor %}
+                </div>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

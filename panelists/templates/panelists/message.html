@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+    <div>
+        <div class="message container">
+        
+            <a class="btn btn-secondary btn-sm" href="{% url 'inbox' %}">< back to inbox</a>
+            <hr>
+            <h5>subject: {{message.subject}}</h5>
+            <h5>from: {{message.name}}</h5>
+            <h5>date: {{message.created}}</h5>
+            <div>message: {{message.body|linebreaksbr}}</div>
+        </div>
+    </div>
+{% endblock %}

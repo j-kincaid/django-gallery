@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div class="container-md">
+    <h2>Messages</h2>
+    <a href="{% url 'account' %}" class="btn btn-secondary btn-sm">back to account</a>
+<h4>New Messages(<span>{{unreadCount}}</span>)</h4>
+  <ul class="list-group">
+    {% for message in messageRequests %}
+        {% if message.is_read == False %}
+    <li class="list-group-item">
+        {% else %}
+    <li class="list-group-item" message"></li>
+        {% endif %}
+
+        <a href="{% url 'message' message.id %}">
+        <span class="list-group-item list-group-item-info">Sender: {{message.name}}</span>
+        <span class="list-group-item list-group-item-action">Subject: {{message.subject}}</span>
+        <span class="list-group-item">Date: {{message.created}}</span>
+    </a>
+</li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}
