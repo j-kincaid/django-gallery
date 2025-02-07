@@ -1,33 +1,14 @@
-# Crit Night
+# Gallery 
 
 ### CONCEPT:
 
-I first became acquainted with the tradition of Critique Night (CRIT NIGHT) through Plug Projects, one of Kansas City's alternative Arts Exhibition spaces. 
-
-CRIT NIGHT is: 
-
-Moderated by a rotating panel of local artists and art professionals, 3 artists are selected to participate at each CRIT NIGHT. Open to the public, the goal of CRIT NIGHT is to encourage open discussion of artists’ work and to activate both the artist and audience engaged dialogue that will provoke artistic growth and the public’s engagement.
-
-Plug is in its 11th year now. The Crit Night app is designed to track responses to the art during the informal sessions. It incorporates a rubric to guide the panel in topics or themes to prioritize the conversation. Once the app is developed, maybe I'll have the confidence to present it as a tool for use at an event! 
+A gallery of projects made with different technologies.
 
 ### FEATURES:
 
-- Moderator and Artist account categories
-- Logins with validation
-- Thumbnail images of the artworks on display
-- Artists can create, read, update, and delete their own images.
-- Anyone can answer the questions:
-- -- What works?
-- -- What needs work?
-- -- What might work?
 
 ### GOALS: 
 
-- The app will store images and responses 
-- A fun and easy star scoring system
-- A safe space to share feedback and constructive criticism
-
-### PERSONAS:
 
 | Role | Education | Goals |
 | --- | ------ | -------- |    
