@@ -9,11 +9,11 @@ A gallery of projects made with different technologies.
 
 | Project | Description | Technologies |
 | --- | ------ | -------- |    
-| Artist | Likely emerging or mid-career artist. May have a degree in Music, Dance, Studio Art, Theater, Creative Writing, Art History, or a related discipline, or self-taught. | Obtain feedback on works in progress, and enable the art to be seen by a wider audience. | 
+| Artist website | Portfolio of artworks. Includes About page for biographical information an video interview with Julie Denesha | HTML, CSS, JavaScript. | 
 |    |       |       |      
-| Moderator | Similar background as Artist, often with experience curating exhibitions or teaching art. Could be an art critic or activist. | Build professional reputation; academic and professional advancement; influence an art movement. | 
+| GitHub pages portfolio | SImple site with thumbnails and descriptions of professional experiences. | HTML, CSS, JavaScript. | 
 |    |       |       |      
-| Guest/Public | All education levels | Anyone interested in art and looking for a fun cultural activity | 
+| This site | A Django site showcasing several of the projects in the above two portfolios. This one incorporates CRUD operations, internal messaging between user accounts, and the Pillow library for image display | Python Django, API calls for internal messaging | 
 
 
 ### Home page / Artworks
