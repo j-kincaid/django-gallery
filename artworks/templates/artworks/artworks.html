@@ -23,7 +23,7 @@
                     </p>
                     <p><small>added {{ artwork.created }}</small></p>
                     <p>{{ artwork.topic }}</p>
-                    <p>{{ artwork.vote_ratio }}%</p>
+                    {% comment %} <p>{{ artwork.vote_ratio }}%</p>
                     <p class="card-text">{{ artwork.vote_total }} Vote{{ artwork.vote_total|pluralize:"s" }} Received</p>
                     
                     {% if artwork.vote_ratio >= 95 %}
@@ -96,7 +96,7 @@
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
-                    {% endif %}
+                    {% endif %} {% endcomment %}
                     
                     <hr>
                     <a href="{% url 'artwork' artwork.id %}" class="btn btn-secondary btn-sm">Detail View</a>

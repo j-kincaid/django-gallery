@@ -16,9 +16,9 @@
                     
                   <h6 class="card-title">{{profile.role}}</h6>
                       <ul class="nav nav-pills nav-fill art-skills">
-                        <li class="nav-item">
+                        {% comment %} <li class="nav-item">
                           <p class="card-text"><small>{{profile.pronouns}}</small></p>
-                        </li>
+                        </li> {% endcomment %}
                         <hr>
                         <li class="nav-item">
                           <h5>Media:</h5>
@@ -30,8 +30,6 @@
                           <li class="nav-item">
                             <p class="card-text"><small>{{profile.brief_bio|slice:"110"}}...</small></p>
                           </li>
-                          
-
                         <li>
                           <a href="{% url 'user-profile' profile.id %}" class="btn btn-secondary btn-sm">More examples</a>
                         </li>
