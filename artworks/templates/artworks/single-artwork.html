@@ -8,11 +8,11 @@
 
 <h2>{{artwork.title}}</h2>
 <hr>
-
+{% comment %} 
 <h5 class="artwork--value">
     {{artwork.vote_ratio}}% Positive Votes Received ({{artwork.vote_total}}
     Vote{{artwork.vote_total|pluralize:"s"}})
-</h5>
+</h5> {% endcomment %}
 <hr>
 <h3>About the Artwork</h3>
 <p>{{artwork.description}}</p>

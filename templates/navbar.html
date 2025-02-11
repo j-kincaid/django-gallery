@@ -28,13 +28,13 @@
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="{% url 'create-artwork' %}">Add Project</a>
             </li> 
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="{% url 'inbox' %}">Inbox</a>
-            </li>
+            </li> {% endcomment %}
 
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="{% url 'results' %}">Results</a>
-            </li>
+            </li> {% endcomment %}
             <li class="nav-item">
               <a class="nav-link active text-white" aria-current="page" href="{% url 'logout' %}">Log Out</a>
             </li>
