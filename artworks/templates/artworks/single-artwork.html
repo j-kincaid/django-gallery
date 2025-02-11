@@ -16,8 +16,8 @@
 <hr>
 <h3>About the Artwork</h3>
 <p>{{artwork.description}}</p>
-<h5>I would like feedback on:</h5>
-<p>{{artwork.topic}}</p>
+{% comment %} <h5>I would like feedback on:</h5>
+<p>{{artwork.topic}}</p> {% endcomment %}
 
 
 {% if artwork.source_link %}
@@ -39,7 +39,7 @@
     <div class="col">
         <div class="card" style="width: 18rem;">
 
-        <p class="stars">{{review.value}}</p>
+        {% comment %} <p class="stars">{{review.value}}</p>
 
             {% if request.user.profile.id in artwork.reviewers %}
                 <p>You have already submitted your review for this artwork.</p>
@@ -64,9 +64,9 @@
 
         {% else %}
             <a href="{% url 'login' %}?next={{request.path}}">Please sign in to leave a review.</a>
-        {% endif %}
+        {% endif %} {% endcomment %}
 
-        <div class="card" style="width: 18rem;">
+        {% comment %} <div class="card" style="width: 18rem;">
             {% for review in artwork.review_set.all %}
             <div class="card" style="width: 18rem;">
                 {% if review.comments %}
@@ -80,7 +80,7 @@
                     <p>{{review.comments|linebreaksbr}}</p>
                 {% endif %} 
             {% endfor %}
-        </div>
+        </div> {% endcomment %}
         </div>
 
     </div>
