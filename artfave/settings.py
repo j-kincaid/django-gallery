@@ -123,12 +123,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = '4j.kincaid@gmail.com'
-EMAIL_HOST_PASSWORD = 'demt wabo ufef emcv'
-
-# Use environment variables here
-
-EMAIL_HOST_PASSWORD = "dmpnbnznsqjeopgk"
-
+EMAIL_HOST_PASSWORD = 'dmpnbnznsqjeopgk'  # Use the App Password here
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -143,6 +138,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 MEDIA_ROOT = os.path.join(BASE_DIR, "static/images")
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
